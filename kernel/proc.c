@@ -273,6 +273,9 @@ fork(void)
     release(&np->lock);
     return -1;
   }
+	//将系统追踪的掩码复制
+	np->mask = p->mask;
+
   np->sz = p->sz;
 
   np->parent = p;
